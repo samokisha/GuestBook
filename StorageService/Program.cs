@@ -1,13 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using MassTransit;
+using MessageContracts.Comments;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StorageService.Consumers;
 using StorageService.Data;
-using StorageService.Model;
 using StorageService.Repositories;
 
 namespace StorageService
@@ -26,9 +26,21 @@ namespace StorageService
                     services.AddDbContext<GuestBookContext>(
                         builder =>
                             builder.UseSqlServer(hostContext.Configuration.GetConnectionString("GuestBook"))
-                        );
+                    );
 
                     services.AddScoped<ICommentRepository, CommentRepository>();
+
+                    services.AddMassTransit(x =>
+                    {
+                        x.AddConsumer<SaveCommentConsumer>();
+                        
+                        x.UsingRabbitMq((context, configurator) =>
+                        {
+                            configurator.ConfigureEndpoints(context);
+                        });
+                        
+                        x.AddRequestClient<Comment>();
+                    });
 
                     services.AddHostedService<Worker>();
                 });

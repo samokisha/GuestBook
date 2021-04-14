@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MessageContracts.Comments;
 using Microsoft.EntityFrameworkCore;
 using StorageService.Data;
-using StorageService.Model;
 
 namespace StorageService.Repositories
 {
