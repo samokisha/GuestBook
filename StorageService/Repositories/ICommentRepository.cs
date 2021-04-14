@@ -5,11 +5,11 @@ using StorageService.Model;
 
 namespace StorageService.Repositories
 {
-    public interface IRepository<TEntity, TId>
+    public interface ICommentRepository
     {
-        Task<Guid> AddAsync(TEntity entity);
+        Task<Guid> AddAsync(Comment entity);
 
-        Task<Comment> GetAsync(TId id);
+        Task<Comment> GetAsync(Guid id);
 
         Task<ICollection<Comment>> GetAllAsync();
     }

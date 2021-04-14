@@ -7,7 +7,7 @@ using StorageService.Model;
 
 namespace StorageService.Repositories
 {
-    public class CommentRepository : IRepository<Comment, Guid>
+    public class CommentRepository : ICommentRepository
     {
         private readonly GuestBookContext _context;
 

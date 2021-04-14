@@ -28,7 +28,7 @@ namespace StorageService
                             builder.UseSqlServer(hostContext.Configuration.GetConnectionString("GuestBook"))
                         );
 
-                    services.AddScoped<IRepository<Comment, Guid>, CommentRepository>();
+                    services.AddScoped<ICommentRepository, CommentRepository>();
 
                     services.AddHostedService<Worker>();
                 });
