@@ -13,7 +13,9 @@ namespace StorageService.Data
         public DbSet<Comment> Comments { get; set; }
 
         public GuestBookContext(DbContextOptions<GuestBookContext> options) : base(options)
-        { }
+        {
+            Database.Migrate();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
