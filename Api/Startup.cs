@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MassTransit;
+using MessageContracts.Comments;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,17 @@ namespace Api
         {
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Api", Version = "v1"}); });
+
+            services.AddMassTransit(x =>
+            {
+                        
+                x.UsingRabbitMq((context, configurator) =>
+                {
+                    configurator.ConfigureEndpoints(context);
+                });
+
+                x.AddRequestClient<Comment>();
+            }).AddMassTransitHostedService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
