@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StorageService.Data;
+using StorageService.Model;
+using StorageService.Repositories;
 
 namespace StorageService
 {
@@ -25,6 +27,8 @@ namespace StorageService
                         builder =>
                             builder.UseSqlServer(hostContext.Configuration.GetConnectionString("GuestBook"))
                         );
+
+                    services.AddScoped<IRepository<Comment, Guid>, CommentRepository>();
 
                     services.AddHostedService<Worker>();
                 });
