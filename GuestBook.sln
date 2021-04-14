@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageService", "StorageSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageContracts", "MessageContracts\MessageContracts.csproj", "{EBD8323B-146E-4A09-8859-C0D877B34BD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{41811C76-5785-443A-8292-CD9201A9F585}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{EBD8323B-146E-4A09-8859-C0D877B34BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD8323B-146E-4A09-8859-C0D877B34BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBD8323B-146E-4A09-8859-C0D877B34BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41811C76-5785-443A-8292-CD9201A9F585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41811C76-5785-443A-8292-CD9201A9F585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41811C76-5785-443A-8292-CD9201A9F585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41811C76-5785-443A-8292-CD9201A9F585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
