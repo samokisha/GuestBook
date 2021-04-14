@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageService", "StorageService\StorageService.csproj", "{42DF6A28-C97F-49B8-8186-B2973C12BF45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageContracts", "MessageContracts\MessageContracts.csproj", "{EBD8323B-146E-4A09-8859-C0D877B34BD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{42DF6A28-C97F-49B8-8186-B2973C12BF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42DF6A28-C97F-49B8-8186-B2973C12BF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42DF6A28-C97F-49B8-8186-B2973C12BF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD8323B-146E-4A09-8859-C0D877B34BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD8323B-146E-4A09-8859-C0D877B34BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD8323B-146E-4A09-8859-C0D877B34BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD8323B-146E-4A09-8859-C0D877B34BD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
