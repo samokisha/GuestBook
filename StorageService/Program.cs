@@ -40,9 +40,7 @@ namespace StorageService
                         });
                         
                         x.AddRequestClient<Comment>();
-                    });
-
-                    services.AddHostedService<Worker>();
+                    }).AddMassTransitHostedService();
                 });
     }
 }

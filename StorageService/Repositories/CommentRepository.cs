@@ -19,6 +19,7 @@ namespace StorageService.Repositories
         public async Task<Guid> AddAsync(Comment comment)
         {
             var entry = await _context.Comments.AddAsync(comment);
+            await _context.SaveChangesAsync();
             return entry.Entity.Id;
         }
 
