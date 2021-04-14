@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using MessageContracts.Comments;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace StorageService.Data
 {
