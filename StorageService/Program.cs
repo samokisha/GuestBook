@@ -34,6 +34,7 @@ namespace StorageService
                         
                         x.UsingRabbitMq((context, configurator) =>
                         {
+                            configurator.Host("rabbitmq");
                             configurator.ConfigureEndpoints(context);
                         });
                         

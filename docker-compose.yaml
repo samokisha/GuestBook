@@ -1,4 +1,4 @@
-version: "3"
+version: "2.1"
 services:
   mssql:
     container_name: guest_book_db
@@ -15,4 +15,37 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "localhost", "5672" ]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  storage_service:
+    container_name: guest_book_service
+    build:
+      context: .
+      dockerfile: Dockerfile.storage-service
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mssql:
+        condition: service_started
+    links:
+      - rabbitmq
+      - mssql
+
+  web_api:
+    container_name: guest_book_web_api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "5001:5001"
+      - "5000:5000"
+    depends_on:
+      storage_service:
+        condition: service_started
+    links:
+      - storage_service
     
