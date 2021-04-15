@@ -2,26 +2,26 @@
 
 ## Requirements
 
-- .Net Core 5
 - Docker
 - docker-compose
 
 ## How to run
 
-1. Run MS SQL Server and RabbitMQ at Docker
+1. Build
 ```sh
-docker-compose up -d
+docker-compose build
 ```
 
-2. Run StorageService
+2. Run MS SQL Server, RabbitMQ, Storage Service and Api at Docker
 ```sh
-dotnet run -p StorageService
+docker-compose up
 ```
 
-3. Run Api
-```sh
-dotnet run -p Api
-```
+3. Open http://localhost:5000/swagger/index.html in browser
+4. Explore API
 
-4. Open https://localhost:5001/swagger/index.html in browser
-5. Explore API
+> Notice:
+> 
+> 1. The first run may be slow. Please, be patient.
+> 2. HTTPS not working now. I try fix it in future.
+> 
