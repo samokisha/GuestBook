@@ -12,18 +12,18 @@ namespace Api.Controllers
     public class CommentController : ControllerBase
     {
         private readonly ILogger<CommentController> _logger;
-        private readonly IRequestClient<Comment> _requestClient;
+        private readonly IRequestClient<NewCommentModel> _requestClient;
         
-        public CommentController(ILogger<CommentController> logger, IRequestClient<Comment> requestClient)
+        public CommentController(ILogger<CommentController> logger, IRequestClient<NewCommentModel> requestClient)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _requestClient = requestClient ?? throw new ArgumentNullException(nameof(requestClient));
         }
 
         [HttpPost]
-        public async Task<Guid> Add([FromBody] Comment comment)
+        public async Task<Guid> Add([FromBody] NewCommentModel comment)
         {
-            var response = await _requestClient.GetResponse<CommentSaved>(comment);
+            var response = await _requestClient.GetResponse<SavedCommentIdModel>(comment);
 
             _logger.LogInformation("Received new comment. Saved with id: {Id}", response.Message.Id);
 

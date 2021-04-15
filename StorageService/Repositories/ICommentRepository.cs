@@ -7,10 +7,10 @@ namespace StorageService.Repositories
 {
     public interface ICommentRepository
     {
-        Task<Guid> AddAsync(Comment entity);
+        Task<Guid> AddAsync(NewCommentModel entity);
 
-        Task<Comment> GetAsync(Guid id);
+        Task<SavedCommentIdModel> GetAsync(Guid id);
 
-        Task<ICollection<Comment>> GetAllAsync();
+        Task<ICollection<SavedCommentIdModel>> GetAllAsync();
     }
 }

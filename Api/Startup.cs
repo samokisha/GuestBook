@@ -33,7 +33,7 @@ namespace Api
                     configurator.ConfigureEndpoints(context);
                 });
 
-                x.AddRequestClient<Comment>();
+                x.AddRequestClient<NewCommentModel>();
             }).AddMassTransitHostedService();
         }
 

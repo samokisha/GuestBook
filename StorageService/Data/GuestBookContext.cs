@@ -2,8 +2,8 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using MessageContracts.Comments;
 using Microsoft.EntityFrameworkCore;
+using StorageService.Data.Entities;
 
 namespace StorageService.Data
 {

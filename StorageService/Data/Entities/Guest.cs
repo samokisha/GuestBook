@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace MessageContracts.Comments
+namespace StorageService.Data.Entities
 {
     public class Guest
     {

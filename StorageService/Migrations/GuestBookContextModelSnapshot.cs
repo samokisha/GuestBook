@@ -19,7 +19,7 @@ namespace StorageService.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MessageContracts.Comments.Comment", b =>
+            modelBuilder.Entity("StorageService.Data.Entities.Comment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +48,7 @@ namespace StorageService.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("MessageContracts.Comments.Guest", b =>
+            modelBuilder.Entity("StorageService.Data.Entities.Guest", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,9 +65,9 @@ namespace StorageService.Migrations
                     b.ToTable("Guest");
                 });
 
-            modelBuilder.Entity("MessageContracts.Comments.Comment", b =>
+            modelBuilder.Entity("StorageService.Data.Entities.Comment", b =>
                 {
-                    b.HasOne("MessageContracts.Comments.Guest", "Author")
+                    b.HasOne("StorageService.Data.Entities.Guest", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId");
 

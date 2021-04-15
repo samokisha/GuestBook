@@ -7,7 +7,7 @@ using StorageService.Repositories;
 
 namespace StorageService.Consumers
 {
-    public class SaveCommentConsumer : IConsumer<Comment>
+    public class SaveCommentConsumer : IConsumer<NewCommentModel>
     {
         private readonly ILogger<SaveCommentConsumer> _logger;
         private readonly ICommentRepository _repository;
@@ -18,13 +18,13 @@ namespace StorageService.Consumers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task Consume(ConsumeContext<Comment> context)
+        public async Task Consume(ConsumeContext<NewCommentModel> context)
         {
             var commentId = await _repository.AddAsync(context.Message);
 
             _logger.LogInformation("Consume new comment. Comment saved with id: {Id}", commentId);
 
-            await context.RespondAsync<CommentSaved>(new {Id = commentId});
+            await context.RespondAsync<SavedCommentIdModel>(new {Id = commentId});
         }
     }
 }

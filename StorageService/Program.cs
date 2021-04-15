@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StorageService.Consumers;
 using StorageService.Data;
+using StorageService.MapperProfiles;
 using StorageService.Repositories;
 
 namespace StorageService
@@ -21,6 +22,8 @@ namespace StorageService
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddAutoMapper(typeof(CommentProfile));
+                    
                     services.AddDbContext<GuestBookContext>(
                         builder =>
                             builder.UseSqlServer(hostContext.Configuration.GetConnectionString("GuestBook"))
@@ -38,7 +41,7 @@ namespace StorageService
                             configurator.ConfigureEndpoints(context);
                         });
                         
-                        x.AddRequestClient<Comment>();
+                        x.AddRequestClient<NewCommentModel>();
                     }).AddMassTransitHostedService();
                 });
     }

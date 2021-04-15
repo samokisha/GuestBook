@@ -1,6 +1,6 @@
 namespace MessageContracts.Comments
 {
-    public enum CommentType
+    public enum CommentTypeModel
     {
         Complaint,
         Suggest,
