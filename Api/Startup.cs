@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using MassTransit;
 using MessageContracts.Comments;
 using Microsoft.AspNetCore.Builder;
@@ -21,7 +22,9 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services
+                .AddControllers()
+                .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Api", Version = "v1"}); });
 
             services.AddMassTransit(x =>
