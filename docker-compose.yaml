@@ -1,4 +1,4 @@
-version: "2.1"
+version: "3"
 services:
   mssql:
     container_name: guest_book_db
@@ -31,9 +31,6 @@ services:
         condition: service_healthy
       mssql:
         condition: service_started
-    links:
-      - rabbitmq
-      - mssql
 
   web_api:
     container_name: guest_book_web_api
@@ -41,11 +38,9 @@ services:
       context: .
       dockerfile: Dockerfile.api
     ports:
-      - "5001:5001"
-      - "5000:5000"
+      - "5001:443"
+      - "5000:80"
     depends_on:
       storage_service:
         condition: service_started
-    links:
-      - storage_service
     
